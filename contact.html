@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SMAZ07</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <h2 class="logo">SMAZ07</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <section class="contact">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out for any website-related inquiries.</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p><strong>Email:</strong> smaz.smaz007@gmail.com</p>
+                    <p><strong>Phone:</strong> +92 329-3642275</p>
+                    <p><strong>Location:</strong> Nawabshah, (Sindh) Pakistan</p>
+                </div>
+            
+                <div class="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/mrbpglpz" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <p id="success-message" style="display: none; color: green;">Your message has been sent successfully!</p>
+                </div>
+            </div>
+            
+            <script>
+                document.getElementById("contact-form").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    var form = event.target;
+                    fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    }).then(response => {
+                        if (response.ok) {
+                            document.getElementById("success-message").style.display = "block";
+                            form.reset();
+                        } else {
+                            alert("Oops! Something went wrong.");
+                        }
+                    }).catch(error => {
+                        alert("Error! Please try again.");
+                    });
+                });
+            </script>
+            
+                
+
+        </section>
+        
+        <footer>
+            <p style="text-align: center; color: white; font-weight: bold;">© 2025 SMAZ07. All rights reserved.</p>
+            <p style="text-align: right;">This website is made by SMAZ07</p>
+        </footer>
+    </div>
+</body>
+</html>
